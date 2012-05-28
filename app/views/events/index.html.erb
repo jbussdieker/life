@@ -1,0 +1,15 @@
+<%= link_to 'New Event', new_event_path, :class => "button" %>
+<table>
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Count</th>
+  </tr>
+<% @events.each do |event| %>
+  <tr>
+    <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    <td><%= event.name %></td>
+    <td><%= event.logs.count %></td>
+  </tr>
+<% end %>
+</table>

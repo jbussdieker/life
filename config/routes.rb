@@ -1,4 +1,7 @@
 Life::Application.routes.draw do
+  resources :logs
+  resources :events
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
