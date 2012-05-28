@@ -4,6 +4,6 @@
     <%= f.select "event_id", options_from_collection_for_select(Event.all, "id", "name", @log.event_id) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => "btn" %>
   </div>
 <% end %>

@@ -1,13 +1,14 @@
-<%= link_to 'New Log', new_log_path, :class => "button" %>
-<table>
+<%= link_to 'New Log', new_log_path, :class => "btn" %>
+<br><br>
+<table class="table">
   <tr>
     <th>Name</th>
     <th>Timestamp</th>
   </tr>
-<% @logs.each do |log| %>
+  <% @logs.each do |log| %>
   <tr>
     <td><%= log.event.name %></td>
     <td><%= log.created_at %></td>
   </tr>
-<% end %>
+  <% end %>
 </table>

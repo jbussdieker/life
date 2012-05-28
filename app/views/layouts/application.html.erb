@@ -1,15 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>Life</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-
-<a href="/events">Events</a> <a href="/logs">Logs</a><br><br>
-<%= yield %>
-
+  <div class="container">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">Life</a>
+          <ul class="nav">
+            <li><a href="/events">Events</a></li>
+            <li><a href="/logs">Logs</a></li>
+            <li><%= Time.now.utc %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>
