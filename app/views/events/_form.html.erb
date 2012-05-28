@@ -1,9 +1,27 @@
-<%= form_for(@event) do |f| %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit nil, :class => "btn" %>
-  </div>
-<% end %>
+<div class="well">
+  <%= form_for(@event) do |f| %>
+    <div class="field">
+      <%= f.label :type_id %>
+      <%= f.select "type_id", options_from_collection_for_select(Type.all, "id", "name", @event.type_id) %>
+    </div>
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :category_id %>
+      <%= f.select "category_id", options_from_collection_for_select(Category.all, "id", "name", @event.category_id) %>
+    </div>
+    <div class="field">
+      <%= f.label :goal %>
+      <%= f.number_field :goal %>
+    </div>
+    <div class="field">
+      <%= f.label :bad %>
+      <%= f.check_box :bad %>
+    </div>
+    <div class="actions">
+      <%= f.submit nil, :class => "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

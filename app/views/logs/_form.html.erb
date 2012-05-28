@@ -1,9 +1,11 @@
-<%= form_for(@log) do |f| %>
-  <div class="field">
-    <%= f.label :event_id %><br />
-    <%= f.select "event_id", options_from_collection_for_select(Event.all, "id", "name", @log.event_id) %>
-  </div>
-  <div class="actions">
-    <%= f.submit nil, :class => "btn" %>
-  </div>
-<% end %>
+<div class="well">
+  <%= form_for(@log) do |f| %>
+    <div class="field">
+      <%= f.label :event_id %>
+      <%= f.select "event_id", options_from_collection_for_select(Event.all, "id", "name", @log.event_id) %>
+    </div>
+    <div class="actions">
+      <%= f.submit nil, :class => "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
