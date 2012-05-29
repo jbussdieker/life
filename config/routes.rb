@@ -1,4 +1,8 @@
 Life::Application.routes.draw do
+  resources :unit_types
+
+  resources :groceries
+
   resources :logs
   resources :events
 

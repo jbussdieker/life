@@ -30,4 +30,14 @@ class LogsController < ApplicationController
       render action => "edit"
     end
   end
+
+  def destroy
+    @log = Log.find(params[:id])
+    @log.destroy
+
+    respond_to do |format|
+      format.html { redirect_to logs_url }
+      format.json { head :no_content }
+    end
+  end
 end

@@ -1,0 +1,22 @@
+<ul class="pager">
+  <li class="previous">
+    <%= link_to 'New Grocery', new_grocery_path %>
+  </li>
+</ul>
+<table class="table table-striped table-bordered">
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Target</th>
+    <th></th>
+  </tr>
+<% @groceries.each do |grocery| %>
+  <tr>
+    <td><%= link_to 'Edit', edit_grocery_path(grocery) %></td>
+    <td><%= grocery.name %></td>
+    <td><%= grocery.target %> <%= grocery.unit_type.name %></td>
+    <td><%= link_to 'Destroy', grocery, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
