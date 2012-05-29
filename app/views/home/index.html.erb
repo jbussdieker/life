@@ -1,4 +1,10 @@
-<div class="hero-unit">
-  <h1>Welcome Josh!</h1>
-  <p>Today is a great day!</p>
-</div>
+  <% if params[:category] %>
+    <% @categories.each do |event| %>
+      <a class="btn btn-hero" href="?event=<%= event.id %>"><%= event.name %></a>
+    <% end %>
+  <% else %>
+    <% @categories.each do |category| %>
+      <a class="btn btn-hero" href="?category=<%= category.id %>"><%= category.name %></a>
+    <% end %>
+  <% end %>
+

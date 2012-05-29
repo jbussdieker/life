@@ -10,14 +10,14 @@
     <th></th>
     <th>Name</th>
     <th>Timestamp</th>
-    <th>Duration</th>
+    <th class="hidden-phone">Duration</th>
   </tr>
   <% @logs.each do |log| %>
   <tr>
     <td><%= link_to 'Edit', edit_log_path(log) %></td>
     <td><%= log.event.name %></td>
     <td><%= log.created_at %></td>
-    <td><%= log.duration %></td>
+    <td class="hidden-phone"><%= log.duration %></td>
   </tr>
   <% end %>
 </table>

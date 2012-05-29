@@ -1,6 +1,9 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+    @events = Event.order("category_id, name")
+    if params[:category]
+      @events = Event.order("name").where :category_id => params[:category]
+    end
   end
 
   def new

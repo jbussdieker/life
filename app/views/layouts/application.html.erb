@@ -8,22 +8,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <div class="container">
+  <div class="container-fluid">
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container">
+        <div class="container-fluid">
           <a class="brand" href="#">Life</a>
           <ul class="nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/events">Events</a></li>
-            <li><a href="/logs">Logs</a></li>
+            <li class="<%= 'active' if params[:controller] == 'home' %>"><a href="/">Home</a></li>
+            <li class="<%= 'active' if params[:controller] == 'events' %>"><a href="/events">Events</a></li>
+            <li class="<%= 'active' if params[:controller] == 'logs' %>"><a href="/logs">Logs</a></li>
           </ul>
         </div>
       </div>
     </div>
-    <div class="row">
-      <%= yield %>
-    </div>
+    <%= yield %>
   </div>
 </body>
 </html>
