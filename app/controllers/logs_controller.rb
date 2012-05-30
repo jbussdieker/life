@@ -3,6 +3,7 @@ class LogsController < ApplicationController
     #@logs = Log.order("created_at")
     yesterday = Time.now # - 1.day
     @logs = Log.where(["created_at >= ? AND created_at <= ?", yesterday.beginning_of_day, yesterday.end_of_day]).paginate(:page => params[:page]).order("created_at DESC")
+    @logs = Log.paginate(:page => params[:page]).order("created_at DESC")
   end
 
   def new

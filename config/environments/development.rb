@@ -1,3 +1,5 @@
+Time::DATE_FORMATS[:short] = "%m/%d %I:%M %p"
+
 Life::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 

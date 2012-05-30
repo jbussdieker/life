@@ -16,7 +16,12 @@ module WillPaginate
       end
 
       def page_number(page)
-        #tag :li, link(page, page, :rel => rel_value(page)), :class => ('active' if page == current_page)
+        if page == current_page
+          classname = 'active'
+        else
+          classname = 'hidden-phone'
+        end
+        tag :li, link(page, page, :rel => rel_value(page)), :class => classname
       end
 
       def previous_or_next_page(page, text, classname)

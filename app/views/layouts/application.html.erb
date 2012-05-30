@@ -5,24 +5,30 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0;">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
 </head>
 <body>
-  <div class="container-fluid">
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="brand" href="#">Life</a>
-          <ul class="nav">
-            <li class="<%= 'active' if params[:controller] == 'home' %>"><a href="/">Home</a></li>
-            <li class="<%= 'active' if params[:controller] == 'events' %>"><a href="/events">Events</a></li>
-            <li class="<%= 'active' if params[:controller] == 'groceries' %>"><a href="/groceries">Groceries</a></li>
-            <li class="<%= 'active' if params[:controller] == 'logs' %>"><a href="/logs">Logs</a></li>
-          </ul>
-        </div>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="brand" href="#">Life</a>
+        <ul class="nav">
+          <li class="<%= 'active' if params[:controller] == 'home' %>"><a href="/">Home</a></li>
+          <li class="<%= 'active' if params[:controller] == 'events' %>"><a href="/events">Events</a></li>
+          <li class="<%= 'active' if params[:controller] == 'groceries' %>"><a href="/groceries">Groceries</a></li>
+          <li class="<%= 'active' if params[:controller] == 'logs' %>"><a href="/logs">Logs</a></li>
+        </ul>
       </div>
     </div>
-    <%= yield %>
   </div>
+  <%= yield %>
 </body>
+<script>
+  $(document).on("click", "a", function(event) {
+    event.preventDefault();
+    location.href = $(event.target).attr("href");
+  });
+</script>
 </html>

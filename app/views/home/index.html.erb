@@ -1,6 +1,16 @@
+<br>
+<br>
 <% if params[:category] %>
   <% @categories.each do |event| %>
     <a class="btn btn-primary btn-hero" href="?event=<%= event.id %>"><%= event.name %></a>
+  <% end %>
+  <br>
+  <% @categories_timed.each do |event| %>
+    <% if event.running? %>
+      <a class="btn btn-danger btn-hero" href="?event=<%= event.id %>"><%= event.name %></a>
+    <% else %>
+      <a class="btn btn-success btn-hero" href="?event=<%= event.id %>"><%= event.name %></a>
+    <% end %>
   <% end %>
 <% else %>
   <% @categories.each do |category| %>
