@@ -1,9 +1,9 @@
 <br>
-<br>
 <% if params[:category] %>
   <% @categories.each do |event| %>
     <a class="btn btn-primary btn-hero" href="?event=<%= event.id %>"><%= event.name %></a>
   <% end %>
+  <br>
   <br>
   <% @categories_timed.each do |event| %>
     <% if event.running? %>
